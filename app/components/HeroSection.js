@@ -36,7 +36,7 @@ export default function HeroSection() {
       <video
         ref={video1Ref}
         className={`${styles.video} ${phase === "crossfade" || phase === "showreel" ? styles.videoFadeOut : ""}`}
-        src="/videos/18746142-uhd_3840_2160_25fps.mp4"
+        src="https://res.cloudinary.com/db7rymk1j/video/upload/v1781276480/elie-kolela/banner-intro.mp4"
         autoPlay
         muted
         playsInline
@@ -47,7 +47,7 @@ export default function HeroSection() {
       <video
         ref={video2Ref}
         className={`${styles.video} ${styles.video2} ${phase === "crossfade" ? styles.videoFadeIn : ""} ${phase === "showreel" ? styles.videoVisible : ""}`}
-        src="/videos/8986478-uhd_3840_2160_30fps.mp4"
+        src="https://res.cloudinary.com/db7rymk1j/video/upload/v1781276133/elie-kolela/showreel.mp4"
         muted
         playsInline
         loop
