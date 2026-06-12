@@ -1,0 +1,67 @@
+.section {
+  padding: 110px 0;
+  background: var(--light-bg);
+  overflow: hidden;
+}
+.container { max-width: 1320px; margin: 0 auto; padding: 0 40px; }
+.header {
+  text-align: center; margin-bottom: 64px;
+  display: flex; flex-direction: column; align-items: center;
+}
+
+/* GALLERY GRID */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-auto-rows: 260px;
+  gap: 16px;
+}
+.item {
+  position: relative; border-radius: 16px; overflow: hidden;
+  cursor: pointer; background: var(--light-border);
+  box-shadow: 0 4px 20px rgba(4,18,43,0.08);
+  transition: box-shadow 0.3s, transform 0.3s;
+}
+.item:hover {
+  box-shadow: 0 12px 40px rgba(26,110,245,0.18);
+  transform: translateY(-4px);
+}
+.item.tall  { grid-row: span 2; }
+.item.wide  { grid-column: span 2; }
+
+.item :global(img) { transition: transform 0.6s cubic-bezier(0.22,1,0.36,1) !important; }
+.item:hover :global(img) { transform: scale(1.06) !important; }
+
+/* Overlay */
+.overlay {
+  position: absolute; inset: 0;
+  background: linear-gradient(135deg, rgba(4,18,43,0.8) 0%, rgba(26,110,245,0.4) 100%);
+  display: flex; align-items: flex-end; padding: 22px;
+  opacity: 0; transition: opacity 0.38s ease;
+}
+.item:hover .overlay { opacity: 1; }
+
+.overlayContent {
+  display: flex; align-items: center; gap: 10px;
+  transform: translateY(10px); transition: transform 0.38s ease;
+}
+.item:hover .overlayContent { transform: translateY(0); }
+
+.overlayIcon {
+  display: flex; align-items: center; justify-content: center;
+  width: 34px; height: 34px;
+  background: rgba(255,255,255,0.15); border: 1px solid rgba(255,255,255,0.3);
+  border-radius: 8px; color: #fff; flex-shrink: 0;
+}
+.overlayLabel { font-size: 0.86rem; font-weight: 700; color: #fff; letter-spacing: 0.04em; }
+
+@media (max-width: 900px) {
+  .section { padding: 70px 0; }
+  .container { padding: 0 20px; }
+  .grid { grid-template-columns: repeat(2,1fr); grid-auto-rows: 200px; }
+  .item.tall { grid-row: span 1; }
+  .item.wide { grid-column: span 1; }
+}
+@media (max-width: 520px) {
+  .grid { grid-template-columns: 1fr; grid-auto-rows: 220px; }
+}
